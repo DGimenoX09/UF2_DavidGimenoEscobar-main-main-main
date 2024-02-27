@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
 
     public void GoombaDeath()
     {
+        Debug.Log("aa");
         CountManager count = GameObject.FindObjectOfType<CountManager>();
         count.LoadGoombaCount();
         source.PlayOneShot(deathSound);

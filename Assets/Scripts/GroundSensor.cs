@@ -20,7 +20,7 @@ public class GroundSensor : MonoBehaviour
     {
         if(collider.gameObject.tag == "Goombas")
         {
-            playerScript.rBody.AddForce(Vector2.up * playerScript.jumpForce, ForceMode2D.Impulse);
+            playerScript.rBody.AddForce(new Vector2(0,1) * playerScript.jumpForce, ForceMode2D.Impulse);
             anim.SetBool("IsJumping", true);
 
             //Destroy(collider.gameObject);
