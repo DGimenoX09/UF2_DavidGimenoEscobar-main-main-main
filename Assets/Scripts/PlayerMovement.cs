@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rBody;
@@ -78,9 +79,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag=="Caida")MarioDeath();
+    }
 
     void FixedUpdate()
     {
         rBody.velocity = new Vector2(inputHorizontal * movementSpeed, rBody.velocity.y);
+    }
+    public void MarioDeath(){
+        SceneManager.LoadScene("GAME OVER MENU");
+        Destroy(gameObject);
     }
 }

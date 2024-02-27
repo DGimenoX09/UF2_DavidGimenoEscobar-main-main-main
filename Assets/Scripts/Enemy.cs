@@ -57,9 +57,8 @@ public class Enemy : MonoBehaviour
 
         if(collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
-		    
-            SceneManager.LoadScene("GAMEOVERMENU");
+            PlayerMovement player = GameObject.FindObjectOfType<PlayerMovement>();
+            player.MarioDeath();
             
 
         }
@@ -67,6 +66,8 @@ public class Enemy : MonoBehaviour
 
     public void GoombaDeath()
     {
+        CountManager count = GameObject.FindObjectOfType<CountManager>();
+        count.LoadGoombaCount();
         source.PlayOneShot(deathSound);
         animGoomba.SetBool("IsDeath", true);
         boxCollider.enabled = false;
